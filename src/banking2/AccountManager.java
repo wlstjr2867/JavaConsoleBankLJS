@@ -28,13 +28,29 @@ public class AccountManager {
 		System.out.print("선택:");
 		int choice = scan.nextInt();
 		scan.nextLine();
+		
+		System.out.print("계좌번호:");
+		String accNum = scan.nextLine();
+		
+		System.out.print("고객이름:");
+		String name = scan.nextLine();
+		
+		System.out.print("잔고:");
+		int balance = scan.nextInt();
+		
+		System.out.print("기본이자&(정수형태로입력):");
+		int interest = scan.nextInt();
+		
+		
 		if(choice==1) {
 			myaccount[accCnt++] = new NormalAccount(name, accountNumber, balance, interestRate);
 			System.out.println("계좌계설이 완료되었습니다.");
 		}
 		else if(choice==2) {
+			System.out.print("신용등급 (A,B,C등급):");
+			char creditGrade = scan.next().charAt(0);
+			
 			myaccount[accCnt++] = new HighCreditAccount(name, accountNumber, balance, interestRate);
-			System.out.println("신용등급 (A,B,C등급):");
 			System.out.println("계좌계설이 완료되었습니다.");
 
 		}
@@ -42,16 +58,16 @@ public class AccountManager {
 			System.out.println("잘못된 선택입니다.");
 			return;
 		}
-		String iname, iaccountNumber; 
-		int ibalance;
-		double interestRate;
-		System.out.print("계좌번호:");iaccountNumber = scan.nextLine();
-		System.out.print("고객이름:");iname = scan.nextLine();
-		System.out.print("잔고:");ibalance = scan.nextInt();
-		System.out.print("기본이자&(정수형태로입력):");interestRate = scan.nextInt();
-		myaccount[accCnt] = new NormalAccount(name, accountNumber, balance, interestRate);
-				accCnt++;
-		System.out.println("계좌개설이 완료되었습니다");
+//		String iname, iaccountNumber; 
+//		int ibalance;
+//		double interestRate;
+//		System.out.print("계좌번호:");iaccountNumber = scan.nextLine();
+//		System.out.print("고객이름:");iname = scan.nextLine();
+//		System.out.print("잔고:");ibalance = scan.nextInt();
+//		System.out.print("기본이자&(정수형태로입력):");interestRate = scan.nextInt();
+//		myaccount[accCnt] = new NormalAccount(name, accountNumber, balance, interestRate);
+//				accCnt++;
+//		System.out.println("계좌개설이 완료되었습니다");
 	}
 	
 	public void depositMoney() {
