@@ -1,4 +1,4 @@
-package banking;
+package banking2;
 
 import java.util.Scanner;
 
@@ -17,15 +17,12 @@ public class BankingSystemMain {
 	 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		AccountManager manager = new AccountManager(100);
+		AccountManager manager = new AccountManager(50);
 		
 		while(true) {
 			showMenu();
 			int choice = scan.nextInt();
 			switch(choice) {
-//			case 1: case 2:
-//				manager.showMenu(choice);
-//				break;
 			case 1:
 				manager.makeAccount();
 				break;
@@ -41,7 +38,7 @@ public class BankingSystemMain {
 			case 5:
 				System.out.println("프로그램종료");
 				return;
-			}
-		}
-	}
-}
+			}//switch문 끝
+		}//while문 끝
+	}//main 끝
+}//class 끝

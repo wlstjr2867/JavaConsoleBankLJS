@@ -1,4 +1,4 @@
-package banking;
+package banking2;
 
 public interface ICustomDefine {
 	final int MAKE = 1;
