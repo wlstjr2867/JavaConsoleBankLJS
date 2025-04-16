@@ -9,9 +9,19 @@ public class NormalAccount extends Account  {
 		this.interestRate = interestRate;
 	}
 	
+	
+	
+	@Override
+	public void showAccountInfo() {
+		super.showAccountInfo();
+		System.out.println("기본이자율"+ interestRate + "%");
+	}
+
+
+
 	@Override
 	void deposit(int money) {
-		int interest = (int)(getBalance() * interestRate);//(잔고 * 이자율)int형변환 -> 소수점버림
+		int interest = (int)(getBalance() * interestRate / 100);//(잔고 * 이자율)int형변환 -> 소수점버림
 		setBalance(getBalance() + interest + money);//잔고 + 이자율 + 입금액 
 		System.out.println("입금이 완료되었습니다.");
 	}

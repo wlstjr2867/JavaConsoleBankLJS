@@ -1,5 +1,6 @@
-package banking2;
+package banking3;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AccountManager {
@@ -8,24 +9,19 @@ public class AccountManager {
 	
 	private Account[] myaccount;
 	private int accCnt;
-
-	private String name;
-	private String accountNumber;
-	private int balance;
-	private int interestRate;
-	
 	
 	public AccountManager(int num) {
 		myaccount = new Account[num];
 		accCnt = 0;
 	}
-
+			
 	public void makeAccount() {
 		System.out.println("***신규계좌개설***");
 		System.out.println("---계좌선택---");
 		System.out.println("1.보통계좌");
 		System.out.println("2.신용신뢰계좌");
 		System.out.print("선택:");
+	try {
 		int choice = scan.nextInt();
 		scan.nextLine();
 		
@@ -52,47 +48,44 @@ public class AccountManager {
 			
 			myaccount[accCnt++] = new HighCreditAccount(name, accountNumber, balance, interestRate, creditGrade);
 			System.out.println("계좌계설이 완료되었습니다.");
-
+			
 		}
 		else {
 			System.out.println("잘못된 선택입니다.");
 			return;
 		}
-//		String iname, iaccountNumber; 
-//		int ibalance;
-//		double interestRate;
-//		System.out.print("계좌번호:");iaccountNumber = scan.nextLine();
-//		System.out.print("고객이름:");iname = scan.nextLine();
-//		System.out.print("잔고:");ibalance = scan.nextInt();
-//		System.out.print("기본이자&(정수형태로입력):");interestRate = scan.nextInt();
-//		myaccount[accCnt] = new NormalAccount(name, accountNumber, balance, interestRate);
-//				accCnt++;
-//		System.out.println("계좌개설이 완료되었습니다");
 	}
-	
+	catch(InputMismatchException e) {
+		System.out.println("숫자만 입력할 수 있습니다.");
+	}
+}	
 	public void depositMoney() {
 		System.out.println("***입 금***");
 		System.out.println("계좌번호와 입금할 금액을 입력하세요");
-		Scanner scan = new Scanner(System.in);
+	try {
 		System.out.print("계좌번호:");
 		String accountNumber = scan.nextLine();
+		scan.nextLine();
 		System.out.print("입금액:");
 		int money = scan.nextInt();
 		
 		for(int i=0; i<accCnt; i++) {
 			if(myaccount[i].accountNumber.equals(accountNumber)) {
 				myaccount[i].deposit(money);
+				System.out.println("입금이 완료되었습니다.");
 				return;
 			}
 		}
-		System.out.println("입금이 완료되었습니다.");
-
 	}
+	catch(InputMismatchException e) {
+		System.out.println("숫자만 입력할 수 있습니다.");
+	}
+}
 	
 	public void withdrawMoney() {
 		System.out.println("***출 금***");
 		System.out.println("계좌번호와 출금할 금액을 입력하세요");
-		Scanner scan = new Scanner(System.in);
+	try {
 		System.out.print("계좌번호:");
 		String accountNumber = scan.nextLine();
 		System.out.print("출금액:");
@@ -111,14 +104,16 @@ public class AccountManager {
 			}
 		}
 	}
-	
+	catch(InputMismatchException e) {
+		System.out.println("숫자만 입력할 수 있습니다.");
+	}
+}
 	
 	public void showAccInfo() {
 		for(int i=0; i<accCnt; i++) {
-			myaccount[i].showAccountInfo();
+			myaccount[i].showAccInfo();
 			System.out.println();
 		}
 		System.out.println("##전체정보가 출력되었습니다.##");
 	}
-	
 }

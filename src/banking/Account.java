@@ -1,4 +1,4 @@
-package banking2;
+package banking;
 
 public class Account {
 	String name;
@@ -19,26 +19,14 @@ public class Account {
 		System.out.println("-------------------------");
 	}
 	
-	public void showAccountInfo() {
-		System.out.println("이름: "+ name);
-		System.out.println("계좌번호: "+ accountNumber);
-		System.out.println("잔고: "+ balance + "원");
-	}
-	
 	void deposit(int money) {
 		balance += money;
 		System.out.println("입금이 완료되었습니다.");
 	}
 	
 	void withdraw(int money) {
-		if(balance >= money) {
-			balance -= money;
-			System.out.println("출금되었습니다.");
-		}
-		else {
-			System.out.println("잔액이 부족합니다.");
-		}
-		
+		balance -=money;
+		System.out.println("출금이 완료되었습니다");
 	}
 	
 	//get /set 
@@ -69,9 +57,5 @@ public class Account {
 	@Override
 	public String toString() {
 		return "Account [name=" + name + ", accountNumber=" + accountNumber + ", balance=" + balance + "]";
-	}
-	
-	
-	
-	
+	}	
 }
