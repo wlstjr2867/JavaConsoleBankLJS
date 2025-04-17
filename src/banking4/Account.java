@@ -1,4 +1,6 @@
-package banking3;
+package banking4;
+
+import java.util.Objects;
 
 abstract public class Account {
 	String name;
@@ -19,7 +21,6 @@ abstract public class Account {
 	
 	abstract void withdraw(int money);
 	
-//	abstract void deleteAccount();
 	
 	//get /set 
 	public String getName() {
@@ -50,6 +51,24 @@ abstract public class Account {
 	public String toString() {
 		return "Account [name=" + name + ", accountNumber=" + accountNumber + ", balance=" + balance + "]";
 	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(accountNumber);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		Account acc = (Account) obj;
+		return this.accountNumber.equals(acc.accountNumber);
+	}
+
+
+	
+	
 	
 	
 	

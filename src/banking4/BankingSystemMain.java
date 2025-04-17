@@ -1,4 +1,4 @@
-package banking3;
+package banking4;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -8,19 +8,19 @@ public class BankingSystemMain {
 	public static Scanner scan = new Scanner(System.in);
 	
 	public static void showMenu() {
-		System.out.println("-------Menu3-------");
+		System.out.println("-------Menu4-------");
 		System.out.println("1. 계좌계설");
 		System.out.println("2. 입금");
 		System.out.println("3. 출금");
 		System.out.println("4. 전체계좌정보출력");
-		System.out.println("5. 프로그램종료");
-
+		System.out.println("5. 계좌정보삭제");
+		System.out.println("6. 프로그램종료");
 		System.out.print("메뉴선택 :");
 	}
 		
 	 
 	public static void main(String[] args) {
-		AccountManager manager = new AccountManager(50);
+		AccountManager manager = new AccountManager();
 		
 		while(true) {
 			showMenu();
@@ -28,7 +28,7 @@ public class BankingSystemMain {
 			int choice = scan.nextInt();
 			scan.nextLine();
 			
-			if(choice>5||choice<1) {
+			if(choice>6||choice<1) {
 				throw new MenuChoiceException();
 			}
 				switch(choice) {
@@ -45,6 +45,9 @@ public class BankingSystemMain {
 					manager.showAccInfo();
 					break;
 				case 5:
+					manager.deleteAccount();
+					break;
+				case 6:
 					System.out.println("프로그램종료");
 					return;
 				}//switch문 끝

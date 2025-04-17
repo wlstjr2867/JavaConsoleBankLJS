@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class AccountManager {
 	
-	Scanner scan = new Scanner(System.in);
 	
 	private Account[] myaccount;
 	private int accCnt;
@@ -22,21 +21,21 @@ public class AccountManager {
 		System.out.println("2.신용신뢰계좌");
 		System.out.print("선택:");
 	try {
-		int choice = scan.nextInt();
-		scan.nextLine();
+		int choice =BankingSystemMain.scan.nextInt();
+		BankingSystemMain.scan.nextLine();
 		
 		System.out.print("계좌번호:");
-		String accountNumber = scan.nextLine();
+		String accountNumber =BankingSystemMain.scan.nextLine();
 		
 		System.out.print("고객이름:");
-		String name = scan.nextLine();
+		String name =BankingSystemMain.scan.nextLine();
 		
 		System.out.print("잔고:");
-		int balance = scan.nextInt();
+		int balance =BankingSystemMain.scan.nextInt();
 		
 		System.out.print("기본이자&(정수형태로입력):");
-		int interestRate = scan.nextInt();
-		
+		int interestRate =BankingSystemMain.scan.nextInt();
+		BankingSystemMain.scan.nextLine();
 		
 		if(choice==1) {
 			myaccount[accCnt++] = new NormalAccount(name, accountNumber, balance, interestRate);
@@ -44,7 +43,7 @@ public class AccountManager {
 		}
 		else if(choice==2) {
 			System.out.print("신용등급 (A,B,C등급):");
-			String creditGrade = scan.next();
+			String creditGrade =BankingSystemMain.scan.next();
 			
 			myaccount[accCnt++] = new HighCreditAccount(name, accountNumber, balance, interestRate, creditGrade);
 			System.out.println("계좌계설이 완료되었습니다.");
@@ -64,15 +63,15 @@ public class AccountManager {
 		System.out.println("계좌번호와 입금할 금액을 입력하세요");
 	try {
 		System.out.print("계좌번호:");
-		String accountNumber = scan.nextLine();
-		scan.nextLine();
+		String accountNumber =BankingSystemMain.scan.nextLine();
 		System.out.print("입금액:");
-		int money = scan.nextInt();
+		int money =BankingSystemMain.scan.nextInt();
+		BankingSystemMain.scan.nextLine();
 		
 		for(int i=0; i<accCnt; i++) {
 			if(myaccount[i].accountNumber.equals(accountNumber)) {
 				myaccount[i].deposit(money);
-				System.out.println("입금이 완료되었습니다.");
+//				System.out.println("입금이 완료되었습니다.");
 				return;
 			}
 		}
@@ -87,19 +86,16 @@ public class AccountManager {
 		System.out.println("계좌번호와 출금할 금액을 입력하세요");
 	try {
 		System.out.print("계좌번호:");
-		String accountNumber = scan.nextLine();
+		String accountNumber =BankingSystemMain.scan.nextLine();
 		System.out.print("출금액:");
-		int money = scan.nextInt();
+		int money =BankingSystemMain.scan.nextInt();
+		BankingSystemMain.scan.nextLine();
 		
 		for(int i=0; i<accCnt; i++) {
 			if(myaccount[i].getAccountNumber().equals(accountNumber)) {
-				if(myaccount[i].getBalance() >=money) {
-					myaccount[i].setBalance(myaccount[i].getBalance() - money);
-					System.out.println("출금이 완료되었습니다.");
-				}
-				else {
-					System.out.println("잔액이 부족합니다.");
-				}
+				
+					myaccount[i].withdraw(money);
+				
 				return;
 			}
 		}
@@ -116,4 +112,6 @@ public class AccountManager {
 		}
 		System.out.println("##전체정보가 출력되었습니다.##");
 	}
+	
+	
 }
