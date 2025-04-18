@@ -80,6 +80,7 @@ public class HighCreditAccount extends Account {
 		System.out.println("이름:"+ getName());
 		System.out.println("잔고:"+ getBalance());
 		System.out.println("기본이자:"+ (int)interestRate+ "%");
+		System.out.println("신용등급:"+ creditGrade);
 		System.out.println("----------");
 	}
 

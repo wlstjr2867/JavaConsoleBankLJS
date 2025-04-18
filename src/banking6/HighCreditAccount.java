@@ -1,5 +1,6 @@
-package banking3;
+package banking6;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class HighCreditAccount extends Account {
@@ -44,35 +45,32 @@ public class HighCreditAccount extends Account {
 
 	@Override
 	void withdraw(int money) {
-		if(money<=0) {
-			System.out.println("0원 이하 금액은 출금할 수 없습니다.");
-			return;
-		}
-		if(money % 1000 != 0) {
-			System.out.println("1000원 단위로 출금가능함.");
-			return;
-		}
-		if(super.getBalance()<money) { 
-// getBalance는 메서드이기때문에 () 붙이고 앞에 인스턴스 붙히기 (부모에 있는 메서드를 불러오는거기때문에 super)
-			System.out.println("잔액 부족입니다. 금액전체를 출금할까요?(y or n");
-			Scanner scan = new Scanner(System.in);
-			String choice = scan.nextLine();
-			if(choice.equals("y")) {
-				setBalance(0);
-				System.out.println("출금이 완료되었습니다.");
-				return;
-			}
-			else if(choice.equals("n")) {
-				System.out.println("출금 요청취소되었습니다.");
-				return;
-			}
-			
-		}
-		
-		setBalance(super.getBalance() - money);
-		System.out.println("출금이 완료되었습니다.");
-		System.out.println("출금액:" + money + "원");
-		System.out.println("현재잔액: "+ getBalance() + "원");
+//		if(money<=0) {
+//			System.out.println("0원 이하 금액은 출금할 수 없습니다.");
+//			return;
+//		}
+//		if(money % 1000 != 0) {
+//			System.out.println("1000원 단위로 출금가능함.");
+//			return;
+//		}
+//		if(super.getBalance()<money) { 
+//// getBalance는 메서드이기때문에 () 붙이고 앞에 인스턴스 붙히기 (부모에 있는 메서드를 불러오는거기때문에 super)
+//			System.out.println("잔액 부족입니다. 금액전체를 출금할까요?(y or n");
+//			String choice = BankingSystemMain.scan.nextLine();
+//			if(choice.equals("y")) {
+//				setBalance(0);
+//				System.out.println("출금이 완료되었습니다.");
+//				return;
+//			}
+//			else if(choice.equals("n")) {
+//				System.out.println("출금 요청취소되었습니다.");
+//				return;
+//			}
+//		}
+//		setBalance(super.getBalance() - money);
+//		System.out.println("출금이 완료되었습니다.");
+//		System.out.println("출금액:" + money + "원");
+//		System.out.println("현재잔액: "+ getBalance() + "원");
 	}
 
 	@Override
