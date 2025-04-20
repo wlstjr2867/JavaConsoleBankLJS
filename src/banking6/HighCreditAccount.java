@@ -13,6 +13,16 @@ public class HighCreditAccount extends Account {
 		this.creditGrade = creditGrade;
 	}
 	
+	
+	
+	@Override
+	public String toString() {
+		return "HighCreditAccount [이름 =" + getName() + ", 계좌번호 ="+ getAccountNumber() + 
+				", 잔고 =" + getBalance() + ", 이자율 =" + interestRate + ", 신용등급 ="+ creditGrade + "]";
+	}
+
+
+
 	@Override
 	void deposit(int money) {
 		if(money<=0) {
@@ -43,8 +53,8 @@ public class HighCreditAccount extends Account {
 		System.out.println("현재잔액: " + getBalance() + "원");
 	}
 
-	@Override
-	void withdraw(int money) {
+//	@Override
+//	void withdraw(int money) {
 //		if(money<=0) {
 //			System.out.println("0원 이하 금액은 출금할 수 없습니다.");
 //			return;
@@ -71,7 +81,7 @@ public class HighCreditAccount extends Account {
 //		System.out.println("출금이 완료되었습니다.");
 //		System.out.println("출금액:" + money + "원");
 //		System.out.println("현재잔액: "+ getBalance() + "원");
-	}
+//	}
 
 	@Override
 	public void showAccInfo() {

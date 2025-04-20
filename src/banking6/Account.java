@@ -1,3 +1,4 @@
+
 package banking6;
 
 import java.io.Serializable;
@@ -20,7 +21,7 @@ abstract public class Account implements Serializable  {
 
 	abstract void deposit(int money);
 	
-	abstract void withdraw(int money);
+//	abstract void withdraw(int money);
 	
 	
 	//get /set 
@@ -67,11 +68,4 @@ abstract public class Account implements Serializable  {
 		return this.accountNumber.equals(acc.accountNumber);
 	}
 
-
-	
-	
-	
-	
-	
-	
 }
