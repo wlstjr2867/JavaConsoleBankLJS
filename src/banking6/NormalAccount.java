@@ -35,7 +35,7 @@ public class NormalAccount extends Account  {
 			System.out.println("500원 단위로 입금가능함.");
 			return;
 		}
-		int interest = (int)(getBalance() * interestRate / 100);//(잔고 * 이자율)int형변환 -> 소수점버림
+		int interest = (int)(getBalance() * interestRate / 100.0);//(잔고 * 이자율)int형변환 -> 소수점버림
 		setBalance(getBalance() + interest + money);//잔고 + 이자율 + 입금액 
 		
 		System.out.println("입금이 완료되었습니다.");

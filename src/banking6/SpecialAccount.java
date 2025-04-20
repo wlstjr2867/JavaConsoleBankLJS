@@ -13,16 +13,20 @@ public class SpecialAccount extends NormalAccount {
 	
 	public void deposit(int money) {
 		numDeposit++; //입금횟수 
+		System.out.println("입금액:" + money + "원, 이자"+ 
+				(int)(getBalance() * getInterestRate() / 100.0)+ "원");
 		
 		if(numDeposit %2 !=0) {//나눠서 홀수 !=0
-			int interest = (int)(getBalance() * getInterestRate() / 100);//(잔고 * 이자율)int형변환 -> 소수점버림
+			int interest = (int)(getBalance() * getInterestRate() / 100.0);//(잔고 * 이자율)int형변환 -> 소수점버림
 			setBalance(getBalance() + interest + money);//잔고 + 이자율 + 입금액
 		}
 		else if(numDeposit %2 ==0) {//나눠서 짝수 ==0
-			int interest = ((int)(getBalance() * getInterestRate() / 100) + 500);
+			int interest = ((int)(getBalance() * getInterestRate() / 100.0) + 500);
+			System.out.println("500원이 추가 입금되었습니다.");
 			setBalance(getBalance() + interest + money); 
 		}
-		
+		System.out.println("입금이 완료되었습니다.");
+		System.out.println("현재잔액: "+ getBalance() + "원");
 	}
 	
 	@Override

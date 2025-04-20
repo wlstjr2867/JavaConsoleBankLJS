@@ -33,7 +33,7 @@ public class HighCreditAccount extends Account {
 			System.out.println("500원 단위로 입금가능함");
 			return;
 		}
-		int interest = (int)(getBalance() * interestRate / 100);
+		int interest = (int)(getBalance() * interestRate / 100.0);
 		
 		int bonusInterest = 0;
 		switch(creditGrade.toUpperCase()) {

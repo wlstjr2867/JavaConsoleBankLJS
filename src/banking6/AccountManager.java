@@ -103,7 +103,6 @@ public class AccountManager {
 			for (Account acc : accountSet) {
 				if (acc.accountNumber.equals(accountNumber)) {
 					acc.deposit(money);
-//				System.out.println("입금이 완료되었습니다.");
 					return;
 				}
 			}
@@ -184,7 +183,7 @@ public class AccountManager {
 			System.out.println("##일치하는 계좌가 없습니다##");
 		}
 	}
-
+	
 	public void saveOption() {
 		System.out.println("***자동저장을 시작합니다***");
 		System.out.println("쓰레드=Thread[Thread-0,5,main");
